@@ -1,0 +1,93 @@
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\appsettings.Development.json
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\appsettings.json
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\backend.staticwebassets.endpoints.json
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\backend.exe
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\backend.deps.json
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\backend.runtimeconfig.json
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\backend.dll
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\backend.pdb
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\Microsoft.OpenApi.dll
+D:\asp.net\package-tracking\backend\obj\Debug\net9.0\backend.csproj.AssemblyReference.cache
+D:\asp.net\package-tracking\backend\obj\Debug\net9.0\rpswa.dswa.cache.json
+D:\asp.net\package-tracking\backend\obj\Debug\net9.0\backend.GeneratedMSBuildEditorConfig.editorconfig
+D:\asp.net\package-tracking\backend\obj\Debug\net9.0\backend.AssemblyInfoInputs.cache
+D:\asp.net\package-tracking\backend\obj\Debug\net9.0\backend.AssemblyInfo.cs
+D:\asp.net\package-tracking\backend\obj\Debug\net9.0\backend.csproj.CoreCompileInputs.cache
+D:\asp.net\package-tracking\backend\obj\Debug\net9.0\backend.MvcApplicationPartsAssemblyInfo.cs
+D:\asp.net\package-tracking\backend\obj\Debug\net9.0\backend.MvcApplicationPartsAssemblyInfo.cache
+D:\asp.net\package-tracking\backend\obj\Debug\net9.0\rjimswa.dswa.cache.json
+D:\asp.net\package-tracking\backend\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+D:\asp.net\package-tracking\backend\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+D:\asp.net\package-tracking\backend\obj\Debug\net9.0\scopedcss\bundle\backend.styles.css
+D:\asp.net\package-tracking\backend\obj\Debug\net9.0\staticwebassets.build.json
+D:\asp.net\package-tracking\backend\obj\Debug\net9.0\staticwebassets.build.json.cache
+D:\asp.net\package-tracking\backend\obj\Debug\net9.0\staticwebassets.development.json
+D:\asp.net\package-tracking\backend\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+D:\asp.net\package-tracking\backend\obj\Debug\net9.0\backend.csproj.Up2Date
+D:\asp.net\package-tracking\backend\obj\Debug\net9.0\backend.dll
+D:\asp.net\package-tracking\backend\obj\Debug\net9.0\refint\backend.dll
+D:\asp.net\package-tracking\backend\obj\Debug\net9.0\backend.pdb
+D:\asp.net\package-tracking\backend\obj\Debug\net9.0\backend.genruntimeconfig.cache
+D:\asp.net\package-tracking\backend\obj\Debug\net9.0\ref\backend.dll
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.InMemory.dll
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+D:\asp.net\package-tracking\backend\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\appsettings.Development.json
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\appsettings.json
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\backend.staticwebassets.endpoints.json
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\backend.exe
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\backend.deps.json
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\backend.runtimeconfig.json
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\backend.dll
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\backend.pdb
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.InMemory.dll
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\Microsoft.OpenApi.dll
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\asp.net\New folder\package-tracking\backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\backend.csproj.AssemblyReference.cache
+D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\rpswa.dswa.cache.json
+D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\backend.GeneratedMSBuildEditorConfig.editorconfig
+D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\backend.AssemblyInfoInputs.cache
+D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\backend.AssemblyInfo.cs
+D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\backend.csproj.CoreCompileInputs.cache
+D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\backend.MvcApplicationPartsAssemblyInfo.cs
+D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\backend.MvcApplicationPartsAssemblyInfo.cache
+D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\backend.sourcelink.json
+D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\rjimswa.dswa.cache.json
+D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\scopedcss\bundle\backend.styles.css
+D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\staticwebassets.build.json
+D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\staticwebassets.build.json.cache
+D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\staticwebassets.development.json
+D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\backend.csproj.Up2Date
+D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\backend.dll
+D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\refint\backend.dll
+D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\backend.pdb
+D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\backend.genruntimeconfig.cache
+D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\ref\backend.dll
