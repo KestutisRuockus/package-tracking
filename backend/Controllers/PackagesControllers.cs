@@ -33,18 +33,18 @@ namespace PackageTracking.Controllers
         // GET package by Id
         [HttpGet("{Id}")]
         public async Task<ActionResult<Package>> GetPackage(int Id)
-{
-    var package = await _context.Packages
-                                .Include(p => p.PackageStatusHistory)
-                                .FirstOrDefaultAsync(p => p.Id == Id);
+        {
+            var package = await _context.Packages
+                                        .Include(p => p.PackageStatusHistory)
+                                        .FirstOrDefaultAsync(p => p.Id == Id);
 
-    if (package == null)
-    {
-        return NotFound();
-    }
+            if (package == null)
+            {
+                return NotFound();
+            }
 
-    return package;
-}
+            return package;
+        }
 
         // POST create new package
         [HttpPost]
@@ -63,9 +63,9 @@ namespace PackageTracking.Controllers
                 Status = "Created",
                 PackageStatusHistory = new List<PackageStatusHistory>
                 {
-                    new PackageStatusHistory 
-                    { 
-                        Status = "Created", 
+                    new PackageStatusHistory
+                    {
+                        Status = "Created",
                         Timestamp = DateTime.UtcNow
                     }
                 }
@@ -78,7 +78,7 @@ namespace PackageTracking.Controllers
 
         // PUT Update existing package by Id
         [HttpPut("{Id}")]
-        public async Task<IActionResult> UpdatePackageDetails(int Id, [FromBody] PackageCreateDto  updatedPackage)
+        public async Task<IActionResult> UpdatePackageDetails(int Id, [FromBody] PackageCreateDto updatedPackage)
         {
 
             var package = await _context.Packages.FindAsync(Id);
@@ -115,5 +115,48 @@ namespace PackageTracking.Controllers
 
             return NoContent();
         }
+
+        // POST update package's status
+        [HttpPost("{Id}/status")]
+        public async Task<IActionResult> UpdateStatus(int Id, [FromBody] string newStatus)
+        {
+            var package = _context.Packages.Include(package => package.PackageStatusHistory).FirstOrDefault(p => p.Id == Id);
+            if (package == null)
+            {
+                return NotFound();
+            }
+
+            if (package.Status == newStatus)
+            {
+                return BadRequest($"'{newStatus}' Status is already set to this value.");
+            }
+
+            var allowedTransitions = new Dictionary<string, string[]>
+            {
+                { "Created", new[] { "Sent", "Canceled" } },
+                { "Sent", new[] { "Accepted", "Returned", "Canceled" } },
+                { "Returned", new[] { "Sent", "Canceled" } },
+                { "Accepted", Array.Empty<string>() },
+                { "Canceled", Array.Empty<string>() }
+            };
+
+            if (!allowedTransitions.TryGetValue(package.Status, out var allowed) || !allowed.Contains(newStatus))
+            {
+                return BadRequest($"Status change from '{package.Status}' to '{newStatus}' is not allowed.");
+            }
+
+            package.Status = newStatus;
+
+            package.PackageStatusHistory.Add(new PackageStatusHistory
+            {
+                Status = newStatus,
+                Timestamp = DateTime.UtcNow
+            });
+
+            await _context.SaveChangesAsync();
+
+            return Ok(package);
+        }
+
     }
 }

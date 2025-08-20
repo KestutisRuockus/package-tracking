@@ -91,3 +91,4 @@ D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\refint\backend.d
 D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\backend.pdb
 D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\backend.genruntimeconfig.cache
 D:\asp.net\New folder\package-tracking\backend\obj\Debug\net9.0\ref\backend.dll
+D:\asp.net\package-tracking\backend\obj\Debug\net9.0\backend.sourcelink.json
