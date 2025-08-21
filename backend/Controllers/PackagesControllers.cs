@@ -66,7 +66,7 @@ namespace PackageTracking.Controllers
                     new PackageStatusHistory
                     {
                         Status = "Created",
-                        Timestamp = DateTime.UtcNow
+                        Timestamp = DateTime.Now
                     }
                 }
             };
