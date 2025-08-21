@@ -7,6 +7,7 @@ const PackageCard = ({ item }: { item: Package }) => {
   const [isStatusTabOpen, setIsStatusTabOpen] = useState<boolean>(false);
 
   const {
+    id,
     trackingNumber,
     senderName,
     recipientName,
@@ -66,6 +67,7 @@ const PackageCard = ({ item }: { item: Package }) => {
           onClose={toggleStatusTab}
           currentStatus={currentPackageStatus}
           updateStatusUI={setCurrentPackageStatus}
+          packageId={id}
         />
       )}
     </div>

@@ -1,10 +1,12 @@
 import { useMemo, useState } from "react";
 import ConfirmBox from "./ConfirmBox";
+import { updatePackageStatus } from "../services/packageServices";
 
 type ChangeStatusTabProps = {
   onClose: () => void;
   currentStatus: Status;
   updateStatusUI: (status: Status) => void;
+  packageId: number;
 };
 
 export type Status = "Created" | "Sent" | "Accepted" | "Returned" | "Canceled";
@@ -32,6 +34,7 @@ const ChangeStatusWindow = ({
   onClose,
   currentStatus,
   updateStatusUI,
+  packageId,
 }: ChangeStatusTabProps) => {
   const validStatusList = useMemo(
     () => setValidStatusTransitions(currentStatus),
@@ -44,12 +47,17 @@ const ChangeStatusWindow = ({
     validStatusList.length > 0 ? validStatusList[0] : null
   );
 
-  const handleChangeButton = () => {
+  const handleChangeButton = async () => {
     console.log(`New Status Of Package: ${newStatus}`);
     if (newStatus) {
-      updateStatusUI(newStatus);
+      try {
+        await updatePackageStatus(packageId, newStatus);
+        updateStatusUI(newStatus);
+      } catch (error) {
+        console.log(error);
+      }
+      onClose();
     }
-    onClose();
   };
 
   const toggleConfirmBox = () => setIsConfirmBoxOpen(!isConfirmBoxOpen);

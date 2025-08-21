@@ -36,3 +36,32 @@ export const getAllPackages = async (): Promise<Package[]> => {
     throw error;
   }
 };
+
+export const updatePackageStatus = async (
+  packageId: number,
+  newStatus: string
+): Promise<Package> => {
+  try {
+    const response = await fetch(
+      `${BASE_URL}/api/packages/${packageId}/status`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newStatus),
+      }
+    );
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(errorText || `HTTP error! status ${response.status}`);
+    }
+
+    const updatedPackage: Package = await response.json();
+    return updatedPackage;
+  } catch (error) {
+    console.error("Failed to update package status:", error);
+    throw error;
+  }
+};
