@@ -19,6 +19,15 @@ type PackageStatusHistory = {
   timestamp: string;
 };
 
+type CreateNewPackage = {
+  senderName: string;
+  senderAddress: string;
+  senderPhone: string;
+  recipientName: string;
+  recipientAddress: string;
+  recipientPhone: string;
+};
+
 const BASE_URL = `http://localhost:5147`;
 
 export const getAllPackages = async (): Promise<Package[]> => {
@@ -62,6 +71,27 @@ export const updatePackageStatus = async (
     return updatedPackage;
   } catch (error) {
     console.error("Failed to update package status:", error);
+    throw error;
+  }
+};
+
+export const createNewPackage = async (packageData: CreateNewPackage) => {
+  try {
+    const response = await fetch(`${BASE_URL}/api/packages`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(packageData),
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(errorText);
+    }
+
+    const newPackage = (await response).json();
+    return newPackage;
+  } catch (error) {
+    console.error("Error creating package:", error);
     throw error;
   }
 };

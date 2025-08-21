@@ -108,7 +108,7 @@ const ChangeStatusWindow = ({
       </div>
       {isConfirmBoxOpen && newStatus && (
         <ConfirmBox
-          newStatus={newStatus}
+          confirmQuestion={`Do you want to change status to ${newStatus}`}
           onConfirm={handleChangeButton}
           onClose={toggleConfirmBox}
         />

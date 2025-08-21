@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import PackageCard from "../components/PackageCard";
 import { getAllPackages, type Package } from "../services/packageServices";
+import { NavLink } from "react-router-dom";
 
 const Packages = () => {
   const [packages, setPackages] = useState<Package[]>([]);
@@ -32,6 +33,13 @@ const Packages = () => {
       {packages.map((item) => (
         <PackageCard key={item.trackingNumber} item={item} />
       ))}
+      <NavLink
+        to={"/create-package"}
+        className="fixed left-6 bottom-6 w-20 h-16 rounded-lg bg-yellow-500 text-black text-xl text-center font-semibold flex items-center justify-center cursor-pointer
+       hover:bg-slate-800 hover:text-white transition-colors duration-300"
+      >
+        Create
+      </NavLink>
     </main>
   );
 };
