@@ -158,5 +158,18 @@ namespace PackageTracking.Controllers
             return Ok(package);
         }
 
+        // GET get filtered packages by status
+        [HttpGet("byStatus")]
+        public async Task<ActionResult<IEnumerable<Package>>> GetPackagesByStatus([FromQuery] string? status)
+        {
+            var query = _context.Packages.Include(p => p.PackageStatusHistory).AsQueryable();
+
+            if (!string.IsNullOrEmpty(status))
+                query = query.Where(p => p.Status == status);
+
+            var packages = await query.ToListAsync();
+            return Ok(packages);
+        }
+
     }
 }

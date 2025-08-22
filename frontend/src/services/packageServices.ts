@@ -110,3 +110,17 @@ export const createNewPackage = async (packageData: CreateNewPackage) => {
     throw error;
   }
 };
+
+export const getPackagesByStatus = async (status: string) => {
+  try {
+    const response = await fetch(
+      `${BASE_URL}/api/packages/byStatus?status=${status}`
+    );
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Failed to fetch packages by status:", error);
+    throw error;
+  }
+};

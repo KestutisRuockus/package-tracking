@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createNewPackage } from "../services/packageServices";
 import { useNavigate } from "react-router-dom";
 import ConfirmBox from "./ConfirmBox";
+import { toast } from "react-toastify";
 
 export type FormState = {
   senderName: string;
@@ -55,9 +56,11 @@ function PackageInputsForm({
   const handleSubmit = async (data: FormState) => {
     try {
       await createNewPackage(data);
+      toast.success("Package created successfully");
       navigate("/");
     } catch (error) {
       console.error(error);
+      toast.error("Failed to create package. Please try again later.");
     }
   };
 
@@ -67,6 +70,8 @@ function PackageInputsForm({
     const isFormValid = validateForm();
     if (isFormValid) {
       toggleConfirmBox();
+    } else {
+      toast.warning("Please fill in all required fields");
     }
   };
 

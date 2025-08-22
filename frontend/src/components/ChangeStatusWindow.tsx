@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import ConfirmBox from "./ConfirmBox";
 import { updatePackageStatus } from "../services/packageServices";
+import { toast } from "react-toastify";
 
 type ChangeStatusTabProps = {
   onClose: () => void;
@@ -53,8 +54,10 @@ const ChangeStatusWindow = ({
       try {
         await updatePackageStatus(packageId, newStatus);
         updateStatusUI(newStatus);
+        toast.success("Status changed successfully");
       } catch (error) {
         console.log(error);
+        toast.error("Failed to change package status. Please try again later.");
       }
       onClose();
     }
