@@ -14,17 +14,22 @@ const statusOptions = [
 type FilterPackageByStatus = {
   selectedStatus: FilterStatusOptions;
   setSelectedStatus: Dispatch<React.SetStateAction<FilterStatusOptions>>;
+  setSearchQuery: Dispatch<React.SetStateAction<string>>;
 };
 
 const FilterPackagesByStatus = ({
   selectedStatus,
   setSelectedStatus,
+  setSearchQuery,
 }: FilterPackageByStatus) => {
   return (
     <select
       value={selectedStatus}
-      onChange={(e) => setSelectedStatus(e.target.value as FilterStatusOptions)}
-      className="px-8 text-slate-900 bg-slate-300 outline-none"
+      onChange={(e) => {
+        setSelectedStatus(e.target.value as FilterStatusOptions);
+        setSearchQuery("");
+      }}
+      className="px-8 text-slate-900 bg-slate-300 outline-none w-36"
     >
       {statusOptions.map((option) => (
         <option key={option}>{option}</option>

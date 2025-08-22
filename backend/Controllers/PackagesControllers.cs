@@ -171,5 +171,24 @@ namespace PackageTracking.Controllers
             return Ok(packages);
         }
 
+        //GET packages by tracking number
+        [HttpGet("search")]
+        public async Task<ActionResult<IEnumerable<Package>>> GetPackagesByTrackingNumber([FromQuery] string? TrackingNumber)
+        {
+            if (string.IsNullOrEmpty(TrackingNumber))
+            {
+                return BadRequest("Tracking number is required");
+            }
+
+            var package = await _context.Packages
+                                .Include(package => package.PackageStatusHistory)
+                                .Where(package => package.TrackingNumber
+                                .Contains(TrackingNumber))
+                                .ToListAsync();
+
+            return package;
+        }
+
+
     }
 }

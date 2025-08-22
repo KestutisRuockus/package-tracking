@@ -9,6 +9,7 @@ import { NavLink } from "react-router-dom";
 import PageHeading from "../components/ui/PageHeading";
 import { toast } from "react-toastify";
 import FilterPackagesByStatus from "../components/FilterPackagesByStatus";
+import { SearchByTrackingNumber } from "../components/ui/SearchByTrackingNumber";
 
 export type FilterStatusOptions =
   | "All"
@@ -24,6 +25,7 @@ const Packages = () => {
   const [error, setError] = useState<string | null>(null);
   const [selectedStatus, setSelectedStatus] =
     useState<FilterStatusOptions>("All");
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   if (error) console.log(error);
 
@@ -32,6 +34,7 @@ const Packages = () => {
       try {
         setLoading(true);
         let data: Package[] = [];
+
         if (selectedStatus !== "All") {
           data = await getPackagesByStatus(selectedStatus);
         } else {
@@ -50,15 +53,51 @@ const Packages = () => {
     fetchPackages();
   }, [selectedStatus]);
 
+  const handleClearButton = async () => {
+    setSearchQuery("");
+    if (selectedStatus !== "All") {
+      setSelectedStatus("All");
+    } else {
+      try {
+        setLoading(true);
+        const data: Package[] = await getAllPackages();
+        setPackages(data);
+      } catch (error) {
+        setError("Failed to load packahes");
+        console.log(error);
+        toast.error("Failed to load packages. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    }
+  };
+
   return (
     <main>
       <PageHeading text={"All Packages"} />
 
       <section className="p-8 flex flex-col gap-8">
-        <div className="bg-slate-900 flex items-center p-1">
-          <FilterPackagesByStatus
-            selectedStatus={selectedStatus}
-            setSelectedStatus={setSelectedStatus}
+        <div className="bg-slate-900 flex gap-4 items-center p-1">
+          {!searchQuery && (
+            <FilterPackagesByStatus
+              selectedStatus={selectedStatus}
+              setSelectedStatus={setSelectedStatus}
+              setSearchQuery={setSearchQuery}
+            />
+          )}
+          {searchQuery && (
+            <button
+              onClick={handleClearButton}
+              type="button"
+              className=" text-slate-900 bg-slate-300 w-36 cursor-pointer hover:bg-slate-400"
+            >
+              Clear Search query
+            </button>
+          )}
+          <SearchByTrackingNumber
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+            setPackages={setPackages}
           />
         </div>
         <div className="flex flex-wrap gap-8">

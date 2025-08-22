@@ -111,16 +111,38 @@ export const createNewPackage = async (packageData: CreateNewPackage) => {
   }
 };
 
-export const getPackagesByStatus = async (status: string) => {
+export const getPackagesByStatus = async (
+  status: string
+): Promise<Package[]> => {
   try {
     const response = await fetch(
       `${BASE_URL}/api/packages/byStatus?status=${status}`
     );
-    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data: Package[] = await response.json();
     return data;
   } catch (error) {
     console.error("Failed to fetch packages by status:", error);
+    throw error;
+  }
+};
+
+export const getPackagesByTrackingNumber = async (
+  trackingNumber: string
+): Promise<Package[]> => {
+  try {
+    const response = await fetch(
+      `${BASE_URL}/api/packages/search?trackingNumber=${trackingNumber}`
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data: Package[] = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Failed to fetch packages by tracking number:", error);
     throw error;
   }
 };
