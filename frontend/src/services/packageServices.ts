@@ -13,7 +13,7 @@ export type Package = {
   packageStatusHistory: PackageStatusHistory[];
 };
 
-type PackageStatusHistory = {
+export type PackageStatusHistory = {
   id: number;
   status: Status;
   timestamp: string;
@@ -39,6 +39,21 @@ export const getAllPackages = async (): Promise<Package[]> => {
     }
 
     const data: Package[] = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Failed to fetch packages:", error);
+    throw error;
+  }
+};
+
+export const getPackageById = async (id: number): Promise<Package | null> => {
+  try {
+    const response = await fetch(`${BASE_URL}/api/packages/${id}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data: Package = await response.json();
     return data;
   } catch (error) {
     console.error("Failed to fetch packages:", error);

@@ -3,7 +3,7 @@ import { createNewPackage } from "../services/packageServices";
 import { useNavigate } from "react-router-dom";
 import ConfirmBox from "./ConfirmBox";
 
-type FormState = {
+export type FormState = {
   senderName: string;
   senderAddress: string;
   senderPhone: string;
@@ -21,8 +21,16 @@ const initFormValues = {
   recipientPhone: "",
 };
 
-function PackageInputsForm() {
-  const [formData, setFormData] = useState<FormState>(initFormValues);
+function PackageInputsForm({
+  packageData,
+  isEditMode = true,
+}: {
+  packageData?: FormState;
+  isEditMode?: boolean;
+}) {
+  const [formData, setFormData] = useState<FormState>(
+    packageData ? packageData : initFormValues
+  );
   const [formErrors, setFormsErrors] = useState<FormState>({
     senderName: "",
     senderAddress: "",
@@ -31,12 +39,11 @@ function PackageInputsForm() {
     recipientAddress: "",
     recipientPhone: "",
   });
-  const [isEditMode] = useState<boolean>(false);
   const [isConfirmBoxOpen, setIsConfirmBoxOpen] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
-  const handleChage = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     const capitalizedValue =
       value.length > 0
@@ -100,7 +107,13 @@ function PackageInputsForm() {
   };
 
   return (
-    <form className="w-[600px] h-fit mx-auto text-slate-800 border-2 border-slate-700 rounded-lg overflow-hidden relative">
+    <form
+      className={`${
+        !packageData
+          ? "text-slate-800 border-2 border-slate-700 rounded-lg overflow-hidden"
+          : ""
+      } w-[600px] h-fit mx-auto  relative`}
+    >
       <div className="w-full h-full flex justify-center">
         <div className="flex flex-col gap-4 justify-center items-center w-1/2 bg-slate-200 py-12">
           <div className="flex flex-col w-4/5">
@@ -108,12 +121,15 @@ function PackageInputsForm() {
               Sender Name
             </label>
             <input
+              disabled={!isEditMode}
               type="text"
               name="senderName"
               placeholder="Sender Name"
               value={formData.senderName}
-              onChange={handleChage}
-              className="w-full p-1 border rounded-lg outline-none"
+              onChange={handleChange}
+              className={`${
+                isEditMode ? "border" : "bg-gray-400 text-white"
+              } w-full p-1  rounded-lg outline-none`}
             />
             <p className="h-4 text-xs text-red-600 italic ps-2 font-semibold">
               {formErrors.senderName}
@@ -124,12 +140,15 @@ function PackageInputsForm() {
               Sender Address
             </label>
             <input
+              disabled={!isEditMode}
               type="text"
               name="senderAddress"
               placeholder="Sender Address"
               value={formData.senderAddress}
-              onChange={handleChage}
-              className="w-full p-1 border rounded-lg outline-none"
+              onChange={handleChange}
+              className={`${
+                isEditMode ? "border" : "bg-gray-400 text-white"
+              } w-full p-1 rounded-lg outline-none`}
             />
             <p className="h-4 text-xs text-red-600 italic ps-2 font-semibold">
               {formErrors.senderAddress}
@@ -140,11 +159,12 @@ function PackageInputsForm() {
               Sender Phone
             </label>
             <input
+              disabled={!isEditMode}
               type="number"
               name="senderPhone"
               placeholder="Sender Phone"
               value={formData.senderPhone}
-              onChange={handleChage}
+              onChange={handleChange}
               onKeyDown={(e) => {
                 if (
                   e.key === "e" ||
@@ -156,7 +176,9 @@ function PackageInputsForm() {
                   e.preventDefault();
                 }
               }}
-              className="w-full p-1 border rounded-lg outline-none"
+              className={`${
+                isEditMode ? "border" : "bg-gray-400 text-white"
+              } w-full p-1 rounded-lg outline-none`}
             />
             <p className="h-4 text-xs text-red-600 italic ps-2 font-semibold">
               {formErrors.senderPhone}
@@ -169,12 +191,15 @@ function PackageInputsForm() {
               Recipient Name
             </label>
             <input
+              disabled={!isEditMode}
               type="text"
               name="recipientName"
               placeholder="Recipient Name"
               value={formData.recipientName}
-              onChange={handleChage}
-              className="w-full p-1 border rounded-lg outline-none"
+              onChange={handleChange}
+              className={`${
+                isEditMode ? "border" : "bg-gray-400 text-white"
+              } w-full p-1 rounded-lg outline-none`}
             />
             <p className="h-4 text-xs text-red-600 italic ps-2 font-semibold">
               {formErrors.recipientName}
@@ -185,12 +210,15 @@ function PackageInputsForm() {
               Recipient Address
             </label>
             <input
+              disabled={!isEditMode}
               type="text"
               name="recipientAddress"
               placeholder="Recipient Address"
               value={formData.recipientAddress}
-              onChange={handleChage}
-              className="w-full p-1 border rounded-lg outline-none"
+              onChange={handleChange}
+              className={`${
+                isEditMode ? "border" : "bg-gray-400 text-white"
+              } w-full p-1 rounded-lg outline-none`}
             />
             <p className="h-4 text-xs text-red-600 italic ps-2 font-semibold">
               {formErrors.recipientAddress}
@@ -201,11 +229,12 @@ function PackageInputsForm() {
               Recipient Phone
             </label>
             <input
+              disabled={!isEditMode}
               type="number"
               name="recipientPhone"
               placeholder="Recipient Phone"
               value={formData.recipientPhone}
-              onChange={handleChage}
+              onChange={handleChange}
               onKeyDown={(e) => {
                 if (
                   e.key === "e" ||
@@ -217,7 +246,9 @@ function PackageInputsForm() {
                   e.preventDefault();
                 }
               }}
-              className="w-full p-1 border rounded-lg outline-none"
+              className={`${
+                isEditMode ? "border" : "bg-gray-400 text-white"
+              } w-full p-1 rounded-lg outline-none`}
             />
             <p className="h-4 text-xs text-red-600 italic ps-2 font-semibold">
               {formErrors.recipientPhone}
@@ -229,9 +260,14 @@ function PackageInputsForm() {
         <button
           onClick={validateForConfirm}
           type="button"
-          className="my-2 px-4 py-1 bg-slate-300 rounded-lg overflow-hidden cursor-pointer hover:bg-slate-500 hover:text-white transition-colors duration-300"
+          disabled={packageData ? true : false}
+          className={`${
+            packageData
+              ? ""
+              : "cursor-pointer hover:bg-slate-500 hover:text-white transition-colors duration-300"
+          } my-2 px-4 py-1 bg-slate-300 rounded-lg overflow-hidden`}
         >
-          {isEditMode ? "Update Package Details" : "Create New Package"}
+          {packageData ? "" : "Create New Package"}
         </button>
       </div>
       {isConfirmBoxOpen && (

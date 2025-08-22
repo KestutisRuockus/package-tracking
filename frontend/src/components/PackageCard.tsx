@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import ChangeStatusTab, { type Status } from "./ChangeStatusWindow";
+import ChangeStatusWindow, { type Status } from "./ChangeStatusWindow";
 import type { Package } from "../services/packageServices";
+import { formatDate } from "../utils/formatDate";
 
 const PackageCard = ({ item }: { item: Package }) => {
   const [isStatusTabOpen, setIsStatusTabOpen] = useState<boolean>(false);
@@ -16,13 +17,7 @@ const PackageCard = ({ item }: { item: Package }) => {
   } = item;
 
   const timestamp = new Date(packageStatusHistory[0].timestamp);
-  const formattedCreatedAtDate = timestamp.toLocaleString("lt-LT", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+  const formattedCreatedAtDate = formatDate(timestamp);
 
   const toggleStatusTab = () => setIsStatusTabOpen(!isStatusTabOpen);
   const [currentPackageStatus, setCurrentPackageStatus] =
@@ -60,10 +55,10 @@ const PackageCard = ({ item }: { item: Package }) => {
         </p>
       </div>
       <button className="absolute left-8 bottom-2 bg-slate-800 px-2 py-0.5 rounded-lg border-2 border-slate-400 text-white overflow-hidden cursor-pointer hover:bg-slate-600 transition-colors duration-300">
-        <NavLink to={`/package/1`}>See Details</NavLink>
+        <NavLink to={`/package/${id}`}>See Details</NavLink>
       </button>
       {isStatusTabOpen && (
-        <ChangeStatusTab
+        <ChangeStatusWindow
           onClose={toggleStatusTab}
           currentStatus={currentPackageStatus}
           updateStatusUI={setCurrentPackageStatus}
